@@ -1,0 +1,7 @@
+## Interface: 30300
+## Title: BagSorter
+## Notes: Sorts your bags by item type, quality, and name using sequential item swaps
+## Version: 1.0
+## OptionalDeps: !!!ClassicAPI
+
+BagSorter.lua
