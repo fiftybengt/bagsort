@@ -1,28 +1,59 @@
+```
+██████╗  █████╗  ██████╗ ███████╗ ██████╗ ██████╗ ████████╗███████╗██████╗
+██╔══██╗██╔══██╗██╔════╝ ██╔════╝██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝██╔══██╗
+██████╔╝███████║██║  ███╗███████╗██║   ██║██████╔╝   ██║   █████╗  ██████╔╝
+██╔══██╗██╔══██║██║   ██║╚════██║██║   ██║██╔══██╗   ██║   ██╔══╝  ██╔══██╗
+██████╔╝██║  ██║╚██████╔╝███████║╚██████╔╝██║  ██║   ██║   ███████╗██║  ██║
+╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
+```
+> *Bag sorting addon for World of Warcraft **3.3.5** (build 12340)*
 
-                                  
-                                  
-                                  
-bag sorting addon for 3.3.5 (build 12340)
+---
 
-Interface: 30300
-Title: BagSorter
-otes: Sorts your bags by item type, quality, and name using sequential item swaps
-Version: 1.0
-OptionalDeps: !!!ClassicAPI
+## Overview
 
--------------------------------------------------------------------------------
-BagSorter.lua  v1.0
-World of Warcraft – Wrath of the Lich King 3.3.5 (build 12340)
+**BagSorter** automatically organizes all your bag contents using a smart, multi-pass sorting algorithm so you spend less time managing inventory and more time playing.
 
-Sorts all bag contents by: item type → quality (desc) → equip slot →
-ub-type → name.  Empty slots are pushed to the end.
+Items are sorted in the following priority order:
 
-Technique: selection-sort simulation produces a minimal list of (posA, posB)
-swaps, then each physical swap is executed via PickupContainerItem with a
-small timer delay between operations so the client can keep up.
+| Priority | Criteria |
+|----------|----------|
+| 1st | Item Type |
+| 2nd | Quality *(descending — best first)* |
+| 3rd | Equip Slot |
+| 4th | Sub-type |
+| 5th | Name |
 
-Commands:
-   /bagsort          – sort all bags
-   /bagsort cancel   – cancel an in-progress sort
-   /bagsort help     – show help
-   /bsort            – shortcut for /bagsort
+> Empty slots are always pushed to the **end** of your bags.
+
+---
+
+## Dependencies
+
+| Dependency | Required |
+|------------|----------|
+| `!!!ClassicAPI` | Optional |
+
+---
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `/bagsort` | Sort all bags |
+| `/bagsort cancel` | Cancel an in-progress sort |
+| `/bagsort help` | Show in-game help |
+| `/bsort` | Shortcut for `/bagsort` |
+
+---
+
+## Installation
+
+1. Download the addon folder
+2. Place it inside your `Interface/AddOns/` directory
+3. Restart the game
+4. Confirm it appears in your **AddOns** list at the character select screen
+
+---
+
+*Compatible with WoW **3.3.5** (build 12340) — Wrath of the Lich King*
